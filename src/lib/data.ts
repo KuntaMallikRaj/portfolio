@@ -323,6 +323,7 @@ export const publications: Publication[] = [
     status: "Accepted",
     abstract:
       "A comparative study of multiple machine-learning algorithms for house-price prediction, evaluating model performance across approaches. Accepted; publication expected in 2026.",
+    href: "https://github.com/KuntaMallikRaj/house_price_prediction/blob/main/docs/paper.pdf",
     diagram: "regression",
   },
   {
