@@ -431,6 +431,28 @@ export const achievements: string[] = [
   "2 research papers — 1 published (Atlantis Press), 1 accepted (2026).",
 ];
 
+// OPEN SOURCE contributions --------------------------------------------------
+export type Contribution = {
+  repo: string;
+  repoNote: string;
+  title: string;
+  summary: string;
+  href: string;
+  status: "merged" | "open";
+};
+
+export const openSource: Contribution[] = [
+  {
+    repo: "grimmory-tools/grimmory",
+    repoNote: "community fork of Booklore · 3.5k★",
+    title: "fix(author-browser): convert AuthorMatchComponent state to signals",
+    summary:
+      "Fixed author search not auto-loading results by migrating the component's state to reactive signals — a cleaner, conflict-free update path.",
+    href: "https://github.com/grimmory-tools/grimmory/pull/1581",
+    status: "merged",
+  },
+];
+
 // LeetCode highlight stats (real, from profile) ------------------------------
 export const leetcodeStats: { value: string; label: string }[] = [
   { value: "1719", label: "contest rating · top 12%" },
