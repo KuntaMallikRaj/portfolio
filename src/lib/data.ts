@@ -461,6 +461,15 @@ export const openSource: Contribution[] = [
     status: "merged",
   },
   {
+    repo: "carlos-emr/carlos",
+    repoNote: "open-source Canadian EMR · HL7/FHIR · Spring",
+    title: "fix: enable RateLimitFilter by default when WAF_RATE_LIMIT_ENABLED is absent",
+    summary:
+      "Made rate limiting secure-by-default — the WAF filter now engages when the config flag is absent, closing a gap where traffic could go unthrottled.",
+    href: "https://github.com/carlos-emr/carlos/pull/2414",
+    status: "open",
+  },
+  {
     repo: "ReginaldErzoah/Aniwa",
     repoNote: "open-source dataset profiling tool",
     title: "Add docstring to read_dataset() in io/readers.py",
