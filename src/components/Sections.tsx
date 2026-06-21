@@ -360,10 +360,47 @@ export function WritingSection({ variant = "page" }: SectionProps = {}) {
   );
 }
 
-// 07 — PUBLICATIONS ----------------------------------------------------------
+// 07 — OPEN SOURCE -----------------------------------------------------------
+export function OpenSourceSection({ variant = "page" }: SectionProps = {}) {
+  const badge = (status: (typeof openSource)[number]["status"]) => {
+    if (status === "open") return { label: "open", cls: "border-border bg-surface-2 text-faint" };
+    return { label: status === "published" ? "✓ published" : "✓ merged", cls: "border-accent-dim bg-accent/10 text-accent" };
+  };
+  return (
+    <SectionFrame variant={variant} id="open-source" num="07" title="Open source" kicker="merged PRs & published work">
+      <div className="grid gap-4 sm:grid-cols-2">
+        {openSource.map((c, i) => {
+          const b = badge(c.status);
+          return (
+            <Reveal key={c.href} delay={i * 60}>
+              <a href={c.href} target="_blank" rel="noopener noreferrer" className="block h-full">
+                <SpotlightCard as="div" className="flex h-full flex-col p-6">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="font-mono text-sm text-accent">{c.repo}</span>
+                    <span className={`rounded-full border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide ${b.cls}`}>
+                      {b.label}
+                    </span>
+                  </div>
+                  <p className="mt-1 font-mono text-xs text-faint">{c.repoNote}</p>
+                  <p className="mt-3 font-mono text-sm text-foreground/90">{c.title}</p>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{c.summary}</p>
+                  <span className="mt-4 inline-block border-t border-border pt-4 text-sm font-medium text-foreground transition-colors group-hover:text-accent">
+                    {c.status === "published" ? "Read the article ↗" : "View pull request ↗"}
+                  </span>
+                </SpotlightCard>
+              </a>
+            </Reveal>
+          );
+        })}
+      </div>
+    </SectionFrame>
+  );
+}
+
+// 08 — PUBLICATIONS ----------------------------------------------------------
 export function PublicationsSection({ variant = "page" }: SectionProps = {}) {
   return (
-    <SectionFrame variant={variant} id="publications" num="07" title="Publications" kicker="peer-reviewed research">
+    <SectionFrame variant={variant} id="publications" num="08" title="Publications" kicker="peer-reviewed research">
       <div className="grid gap-5">
         {publications.map((p, i) => (
           <Reveal key={p.title} delay={i * 80}>
@@ -406,10 +443,10 @@ export function PublicationsSection({ variant = "page" }: SectionProps = {}) {
   );
 }
 
-// 08 — ABOUT & ACHIEVEMENTS --------------------------------------------------
+// 09 — ABOUT & ACHIEVEMENTS --------------------------------------------------
 export function AboutSection({ variant = "page" }: SectionProps = {}) {
   return (
-    <SectionFrame variant={variant} id="about" num="08" title="About & achievements" kicker="who I am · the track record">
+    <SectionFrame variant={variant} id="about" num="09" title="About & achievements" kicker="who I am · the track record">
       {/* intro: bio + leetcode highlight */}
       <div className="mb-12 grid gap-5 lg:grid-cols-[1.3fr_1fr]">
         <Reveal>
@@ -426,34 +463,6 @@ export function AboutSection({ variant = "page" }: SectionProps = {}) {
         <Reveal delay={80}>
           <LeetCodeStats />
         </Reveal>
-      </div>
-
-      {/* open source */}
-      <Reveal className="mb-5">
-        <h3 className="mb-1 text-xl font-semibold tracking-tight">Open source</h3>
-        <p className="mb-5 font-mono text-xs text-faint">merged into projects I don&apos;t maintain</p>
-      </Reveal>
-      <div className="mb-12 grid gap-4">
-        {openSource.map((c, i) => (
-          <Reveal key={c.href} delay={i * 60}>
-            <a href={c.href} target="_blank" rel="noopener noreferrer" className="block">
-              <SpotlightCard as="div" tilt={false} className="p-6">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="font-mono text-sm text-accent">{c.repo}</span>
-                  <span className="rounded-full border border-accent-dim bg-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-accent">
-                    {c.status === "merged" ? "✓ merged" : "open"}
-                  </span>
-                </div>
-                <p className="mt-1 font-mono text-xs text-faint">{c.repoNote}</p>
-                <p className="mt-3 font-mono text-sm text-foreground/90">{c.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{c.summary}</p>
-                <span className="mt-4 inline-block text-sm font-medium text-foreground transition-colors group-hover:text-accent">
-                  View pull request ↗
-                </span>
-              </SpotlightCard>
-            </a>
-          </Reveal>
-        ))}
       </div>
 
       {/* stack */}
@@ -499,10 +508,10 @@ export function AboutSection({ variant = "page" }: SectionProps = {}) {
   );
 }
 
-// 09 — CONTACT ---------------------------------------------------------------
+// 10 — CONTACT ---------------------------------------------------------------
 export function ContactSection({ variant = "page" }: SectionProps = {}) {
   return (
-    <SectionFrame variant={variant} id="contact" num="09" title="Contact" kicker="let's talk">
+    <SectionFrame variant={variant} id="contact" num="10" title="Contact" kicker="let's talk">
       <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
         {/* CTA */}
         <Reveal>

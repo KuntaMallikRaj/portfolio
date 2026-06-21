@@ -11,7 +11,8 @@ export type HomeVizKind =
   | "doc"
   | "atom"
   | "grid"
-  | "ripple";
+  | "ripple"
+  | "branch";
 
 // 1 — orbiting bodies around a core ------------------------------------------
 function Orbit() {
@@ -190,6 +191,41 @@ function Ripple() {
   );
 }
 
+// 10 — git branch merging into main ----------------------------------------
+function Branch() {
+  return (
+    <div className="grid h-full place-items-center">
+      <svg viewBox="0 0 220 70" className="h-full w-full px-4" aria-hidden>
+        <line x1="20" y1="50" x2="200" y2="50" stroke="var(--border)" strokeWidth="2" />
+        <path
+          d="M70 50 C 95 50 95 20 120 20 L 140 20 C 165 20 165 50 190 50"
+          fill="none"
+          stroke="var(--accent-dim)"
+          strokeWidth="2"
+        />
+        <circle cx="20" cy="50" r="4" fill="var(--muted)" />
+        <circle cx="70" cy="50" r="4" fill="var(--muted)" />
+        <circle cx="130" cy="20" r="4" fill="var(--accent)" />
+        <motion.circle
+          r="3.5"
+          fill="var(--accent)"
+          animate={{ cx: [70, 130, 190], cy: [50, 20, 50], opacity: [0, 1, 1] }}
+          transition={{ duration: 2.4, repeat: Infinity, repeatDelay: 0.6, ease: "easeInOut" }}
+        />
+        <motion.circle
+          cx="190"
+          cy="50"
+          r="5"
+          fill="var(--accent)"
+          animate={{ scale: [1, 1.5, 1] }}
+          transition={{ duration: 1.2, repeat: Infinity }}
+          style={{ transformOrigin: "190px 50px" }}
+        />
+      </svg>
+    </div>
+  );
+}
+
 const MAP = {
   orbit: Orbit,
   radar: Radar,
@@ -200,6 +236,7 @@ const MAP = {
   atom: Atom,
   grid: Grid,
   ripple: Ripple,
+  branch: Branch,
 };
 
 export default function HomeViz({ kind }: { kind: HomeVizKind }) {

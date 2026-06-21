@@ -26,6 +26,7 @@ export default function CommandPalette() {
     return [
       { label: "Go to Home", hint: "page", action: go("/") },
       ...nav.map((n) => ({ label: `Go to ${n.label}`, hint: "page", action: go(n.href) })),
+      { label: "Open source", hint: "page", action: go("/open-source") },
       { label: "Publications", hint: "page", action: go("/publications") },
       { label: "About & achievements", hint: "page", action: go("/about") },
       { label: "Download résumé", hint: "file", action: ext(profile.resumeUrl) },

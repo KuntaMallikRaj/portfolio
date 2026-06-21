@@ -438,7 +438,7 @@ export type Contribution = {
   title: string;
   summary: string;
   href: string;
-  status: "merged" | "open";
+  status: "merged" | "open" | "published";
 };
 
 export const openSource: Contribution[] = [
@@ -476,6 +476,15 @@ export const openSource: Contribution[] = [
     summary: "Documented the dataset reader's public API to improve contributor experience.",
     href: "https://github.com/ReginaldErzoah/Aniwa/pull/59",
     status: "merged",
+  },
+  {
+    repo: "GeeksforGeeks",
+    repoNote: "published technical article",
+    title: "JavaScript Program to Check if an Array Contains Only Unique Values",
+    summary:
+      "Authored a published tutorial walking through multiple approaches to detect duplicate values in an array, with complexity trade-offs.",
+    href: "https://www.geeksforgeeks.org/javascript/javascript-program-to-check-if-an-array-contains-only-unique-values/",
+    status: "published",
   },
 ];
 
@@ -516,7 +525,8 @@ export const siteSections: SiteSection[] = [
   { num: "04", label: "Developer tools", href: "/tools", blurb: "pip-installable libraries for backend teams.", meta: `${tools.length} tools`, viz: "terminal" },
   { num: "05", label: "Production stories", href: "/stories", blurb: "Published engineering case studies.", meta: `${stories.length} case studies`, viz: "wave" },
   { num: "06", label: "Technical writing", href: "/writing", blurb: "Distributed-systems deep-dives.", meta: `${articles.length} articles`, viz: "doc" },
-  { num: "07", label: "Publications", href: "/publications", blurb: "Peer-reviewed machine-learning research.", meta: `${publications.length} papers`, viz: "atom" },
-  { num: "08", label: "About & achievements", href: "/about", blurb: "Stack, achievements, and what I'm about.", meta: "profile", viz: "grid" },
-  { num: "09", label: "Contact", href: "/contact", blurb: "Let's talk — I'm open to work.", meta: "get in touch", viz: "ripple" },
+  { num: "07", label: "Open source", href: "/open-source", blurb: "Merged PRs & published contributions.", meta: `${openSource.length} contributions`, viz: "branch" },
+  { num: "08", label: "Publications", href: "/publications", blurb: "Peer-reviewed machine-learning research.", meta: `${publications.length} papers`, viz: "atom" },
+  { num: "09", label: "About & achievements", href: "/about", blurb: "Stack, achievements, and what I'm about.", meta: "profile", viz: "grid" },
+  { num: "10", label: "Contact", href: "/contact", blurb: "Let's talk — I'm open to work.", meta: "get in touch", viz: "ripple" },
 ];
