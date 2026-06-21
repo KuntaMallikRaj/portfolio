@@ -451,6 +451,23 @@ export const openSource: Contribution[] = [
     href: "https://github.com/grimmory-tools/grimmory/pull/1581",
     status: "merged",
   },
+  {
+    repo: "mxm-mrz/backend_failure_lab",
+    repoNote: "real-world backend failure case studies",
+    title: "Add Mermaid diagrams for the BFL-0002 N+1 queries case",
+    summary:
+      "Documented the N+1 query failure case with clear Mermaid diagrams explaining how the problem arises and how it's resolved.",
+    href: "https://github.com/mxm-mrz/backend_failure_lab/pull/3",
+    status: "merged",
+  },
+  {
+    repo: "ReginaldErzoah/Aniwa",
+    repoNote: "open-source dataset profiling tool",
+    title: "Add docstring to read_dataset() in io/readers.py",
+    summary: "Documented the dataset reader's public API to improve contributor experience.",
+    href: "https://github.com/ReginaldErzoah/Aniwa/pull/59",
+    status: "merged",
+  },
 ];
 
 // LeetCode highlight stats (real, from profile) ------------------------------
